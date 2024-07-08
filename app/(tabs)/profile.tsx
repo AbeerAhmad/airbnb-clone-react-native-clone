@@ -117,7 +117,7 @@ const Page = () => {
 
       {isSignedIn && <Button title="Log Out" onPress={() => signOut()} color={Colors.dark} />}
       {!isSignedIn && (
-        <Link href={'/(modals)/login'} asChild>
+        <Link href={'/(modals)/login'}>
           <Button title="Log In" color={Colors.dark} />
         </Link>
       )}
