@@ -15,7 +15,10 @@ const Page = () => {
   const onDataChanged = (category: string) => {
     setCategory(category);
   };
-
+  const filteredItems = useMemo(
+    () => items.filter((item: any) => item.category.name == category),
+    [category]
+  );
   return (
     <View style={{ flex: 1, marginTop: 80 }}>
       {/* Define pour custom header */}
@@ -25,7 +28,7 @@ const Page = () => {
         }}
       />
       <ListingsMap listings={getoItems} />
-      <ListingsBottomSheet listings={items} category={category} />
+      <ListingsBottomSheet listings={filteredItems} category={category} />
     </View>
   );
 };
